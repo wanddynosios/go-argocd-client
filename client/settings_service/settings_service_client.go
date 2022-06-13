@@ -28,7 +28,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SettingsServiceGet(params *SettingsServiceGetParams, opts ...ClientOption) (*SettingsServiceGetOK, error)
+	SettingsServiceGet(params *SettingsServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SettingsServiceGetOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -36,7 +36,7 @@ type ClientService interface {
 /*
   SettingsServiceGet gets returns argo c d settings
 */
-func (a *Client) SettingsServiceGet(params *SettingsServiceGetParams, opts ...ClientOption) (*SettingsServiceGetOK, error) {
+func (a *Client) SettingsServiceGet(params *SettingsServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SettingsServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSettingsServiceGetParams()
@@ -50,6 +50,7 @@ func (a *Client) SettingsServiceGet(params *SettingsServiceGetParams, opts ...Cl
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &SettingsServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

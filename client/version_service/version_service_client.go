@@ -28,7 +28,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	VersionServiceVersion(params *VersionServiceVersionParams, opts ...ClientOption) (*VersionServiceVersionOK, error)
+	VersionServiceVersion(params *VersionServiceVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VersionServiceVersionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -36,7 +36,7 @@ type ClientService interface {
 /*
   VersionServiceVersion versions returns version information of the API server
 */
-func (a *Client) VersionServiceVersion(params *VersionServiceVersionParams, opts ...ClientOption) (*VersionServiceVersionOK, error) {
+func (a *Client) VersionServiceVersion(params *VersionServiceVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*VersionServiceVersionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVersionServiceVersionParams()
@@ -50,6 +50,7 @@ func (a *Client) VersionServiceVersion(params *VersionServiceVersionParams, opts
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &VersionServiceVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

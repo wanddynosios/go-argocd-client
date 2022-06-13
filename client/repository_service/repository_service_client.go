@@ -28,25 +28,25 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RepositoryServiceCreateRepository(params *RepositoryServiceCreateRepositoryParams, opts ...ClientOption) (*RepositoryServiceCreateRepositoryOK, error)
+	RepositoryServiceCreateRepository(params *RepositoryServiceCreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceCreateRepositoryOK, error)
 
-	RepositoryServiceDeleteRepository(params *RepositoryServiceDeleteRepositoryParams, opts ...ClientOption) (*RepositoryServiceDeleteRepositoryOK, error)
+	RepositoryServiceDeleteRepository(params *RepositoryServiceDeleteRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceDeleteRepositoryOK, error)
 
-	RepositoryServiceGet(params *RepositoryServiceGetParams, opts ...ClientOption) (*RepositoryServiceGetOK, error)
+	RepositoryServiceGet(params *RepositoryServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetOK, error)
 
-	RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppDetailsParams, opts ...ClientOption) (*RepositoryServiceGetAppDetailsOK, error)
+	RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppDetailsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetAppDetailsOK, error)
 
-	RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelmChartsParams, opts ...ClientOption) (*RepositoryServiceGetHelmChartsOK, error)
+	RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelmChartsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetHelmChartsOK, error)
 
-	RepositoryServiceListApps(params *RepositoryServiceListAppsParams, opts ...ClientOption) (*RepositoryServiceListAppsOK, error)
+	RepositoryServiceListApps(params *RepositoryServiceListAppsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListAppsOK, error)
 
-	RepositoryServiceListRefs(params *RepositoryServiceListRefsParams, opts ...ClientOption) (*RepositoryServiceListRefsOK, error)
+	RepositoryServiceListRefs(params *RepositoryServiceListRefsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListRefsOK, error)
 
-	RepositoryServiceListRepositories(params *RepositoryServiceListRepositoriesParams, opts ...ClientOption) (*RepositoryServiceListRepositoriesOK, error)
+	RepositoryServiceListRepositories(params *RepositoryServiceListRepositoriesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListRepositoriesOK, error)
 
-	RepositoryServiceUpdateRepository(params *RepositoryServiceUpdateRepositoryParams, opts ...ClientOption) (*RepositoryServiceUpdateRepositoryOK, error)
+	RepositoryServiceUpdateRepository(params *RepositoryServiceUpdateRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceUpdateRepositoryOK, error)
 
-	RepositoryServiceValidateAccess(params *RepositoryServiceValidateAccessParams, opts ...ClientOption) (*RepositoryServiceValidateAccessOK, error)
+	RepositoryServiceValidateAccess(params *RepositoryServiceValidateAccessParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceValidateAccessOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ type ClientService interface {
 /*
   RepositoryServiceCreateRepository creates repository creates a new repository configuration
 */
-func (a *Client) RepositoryServiceCreateRepository(params *RepositoryServiceCreateRepositoryParams, opts ...ClientOption) (*RepositoryServiceCreateRepositoryOK, error) {
+func (a *Client) RepositoryServiceCreateRepository(params *RepositoryServiceCreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceCreateRepositoryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceCreateRepositoryParams()
@@ -68,6 +68,7 @@ func (a *Client) RepositoryServiceCreateRepository(params *RepositoryServiceCrea
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceCreateRepositoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -91,7 +92,7 @@ func (a *Client) RepositoryServiceCreateRepository(params *RepositoryServiceCrea
 /*
   RepositoryServiceDeleteRepository deletes repository deletes a repository from the configuration
 */
-func (a *Client) RepositoryServiceDeleteRepository(params *RepositoryServiceDeleteRepositoryParams, opts ...ClientOption) (*RepositoryServiceDeleteRepositoryOK, error) {
+func (a *Client) RepositoryServiceDeleteRepository(params *RepositoryServiceDeleteRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceDeleteRepositoryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceDeleteRepositoryParams()
@@ -105,6 +106,7 @@ func (a *Client) RepositoryServiceDeleteRepository(params *RepositoryServiceDele
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceDeleteRepositoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -128,7 +130,7 @@ func (a *Client) RepositoryServiceDeleteRepository(params *RepositoryServiceDele
 /*
   RepositoryServiceGet gets returns a repository or its credentials
 */
-func (a *Client) RepositoryServiceGet(params *RepositoryServiceGetParams, opts ...ClientOption) (*RepositoryServiceGetOK, error) {
+func (a *Client) RepositoryServiceGet(params *RepositoryServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceGetParams()
@@ -142,6 +144,7 @@ func (a *Client) RepositoryServiceGet(params *RepositoryServiceGetParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -165,7 +168,7 @@ func (a *Client) RepositoryServiceGet(params *RepositoryServiceGetParams, opts .
 /*
   RepositoryServiceGetAppDetails gets app details returns application details by given path
 */
-func (a *Client) RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppDetailsParams, opts ...ClientOption) (*RepositoryServiceGetAppDetailsOK, error) {
+func (a *Client) RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppDetailsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetAppDetailsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceGetAppDetailsParams()
@@ -179,6 +182,7 @@ func (a *Client) RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppD
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceGetAppDetailsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -202,7 +206,7 @@ func (a *Client) RepositoryServiceGetAppDetails(params *RepositoryServiceGetAppD
 /*
   RepositoryServiceGetHelmCharts gets helm charts returns list of helm charts in the specified repository
 */
-func (a *Client) RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelmChartsParams, opts ...ClientOption) (*RepositoryServiceGetHelmChartsOK, error) {
+func (a *Client) RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelmChartsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceGetHelmChartsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceGetHelmChartsParams()
@@ -216,6 +220,7 @@ func (a *Client) RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelm
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceGetHelmChartsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -239,7 +244,7 @@ func (a *Client) RepositoryServiceGetHelmCharts(params *RepositoryServiceGetHelm
 /*
   RepositoryServiceListApps lists apps returns list of apps in the repo
 */
-func (a *Client) RepositoryServiceListApps(params *RepositoryServiceListAppsParams, opts ...ClientOption) (*RepositoryServiceListAppsOK, error) {
+func (a *Client) RepositoryServiceListApps(params *RepositoryServiceListAppsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListAppsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceListAppsParams()
@@ -253,6 +258,7 @@ func (a *Client) RepositoryServiceListApps(params *RepositoryServiceListAppsPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceListAppsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -276,7 +282,7 @@ func (a *Client) RepositoryServiceListApps(params *RepositoryServiceListAppsPara
 /*
   RepositoryServiceListRefs repository service list refs API
 */
-func (a *Client) RepositoryServiceListRefs(params *RepositoryServiceListRefsParams, opts ...ClientOption) (*RepositoryServiceListRefsOK, error) {
+func (a *Client) RepositoryServiceListRefs(params *RepositoryServiceListRefsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListRefsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceListRefsParams()
@@ -290,6 +296,7 @@ func (a *Client) RepositoryServiceListRefs(params *RepositoryServiceListRefsPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceListRefsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -313,7 +320,7 @@ func (a *Client) RepositoryServiceListRefs(params *RepositoryServiceListRefsPara
 /*
   RepositoryServiceListRepositories lists repositories gets a list of all configured repositories
 */
-func (a *Client) RepositoryServiceListRepositories(params *RepositoryServiceListRepositoriesParams, opts ...ClientOption) (*RepositoryServiceListRepositoriesOK, error) {
+func (a *Client) RepositoryServiceListRepositories(params *RepositoryServiceListRepositoriesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceListRepositoriesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceListRepositoriesParams()
@@ -327,6 +334,7 @@ func (a *Client) RepositoryServiceListRepositories(params *RepositoryServiceList
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceListRepositoriesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -350,7 +358,7 @@ func (a *Client) RepositoryServiceListRepositories(params *RepositoryServiceList
 /*
   RepositoryServiceUpdateRepository updates repository updates a repository configuration
 */
-func (a *Client) RepositoryServiceUpdateRepository(params *RepositoryServiceUpdateRepositoryParams, opts ...ClientOption) (*RepositoryServiceUpdateRepositoryOK, error) {
+func (a *Client) RepositoryServiceUpdateRepository(params *RepositoryServiceUpdateRepositoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceUpdateRepositoryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceUpdateRepositoryParams()
@@ -364,6 +372,7 @@ func (a *Client) RepositoryServiceUpdateRepository(params *RepositoryServiceUpda
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceUpdateRepositoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -387,7 +396,7 @@ func (a *Client) RepositoryServiceUpdateRepository(params *RepositoryServiceUpda
 /*
   RepositoryServiceValidateAccess validates access validates access to a repository with given parameters
 */
-func (a *Client) RepositoryServiceValidateAccess(params *RepositoryServiceValidateAccessParams, opts ...ClientOption) (*RepositoryServiceValidateAccessOK, error) {
+func (a *Client) RepositoryServiceValidateAccess(params *RepositoryServiceValidateAccessParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepositoryServiceValidateAccessOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepositoryServiceValidateAccessParams()
@@ -401,6 +410,7 @@ func (a *Client) RepositoryServiceValidateAccess(params *RepositoryServiceValida
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepositoryServiceValidateAccessReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

@@ -28,11 +28,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SessionServiceCreate(params *SessionServiceCreateParams, opts ...ClientOption) (*SessionServiceCreateOK, error)
+	SessionServiceCreate(params *SessionServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceCreateOK, error)
 
-	SessionServiceDelete(params *SessionServiceDeleteParams, opts ...ClientOption) (*SessionServiceDeleteOK, error)
+	SessionServiceDelete(params *SessionServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceDeleteOK, error)
 
-	SessionServiceGetUserInfo(params *SessionServiceGetUserInfoParams, opts ...ClientOption) (*SessionServiceGetUserInfoOK, error)
+	SessionServiceGetUserInfo(params *SessionServiceGetUserInfoParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceGetUserInfoOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 /*
   SessionServiceCreate creates a new j w t for authentication and set a cookie if using HTTP
 */
-func (a *Client) SessionServiceCreate(params *SessionServiceCreateParams, opts ...ClientOption) (*SessionServiceCreateOK, error) {
+func (a *Client) SessionServiceCreate(params *SessionServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSessionServiceCreateParams()
@@ -54,6 +54,7 @@ func (a *Client) SessionServiceCreate(params *SessionServiceCreateParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &SessionServiceCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -77,7 +78,7 @@ func (a *Client) SessionServiceCreate(params *SessionServiceCreateParams, opts .
 /*
   SessionServiceDelete deletes an existing j w t cookie if using HTTP
 */
-func (a *Client) SessionServiceDelete(params *SessionServiceDeleteParams, opts ...ClientOption) (*SessionServiceDeleteOK, error) {
+func (a *Client) SessionServiceDelete(params *SessionServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSessionServiceDeleteParams()
@@ -91,6 +92,7 @@ func (a *Client) SessionServiceDelete(params *SessionServiceDeleteParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &SessionServiceDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -114,7 +116,7 @@ func (a *Client) SessionServiceDelete(params *SessionServiceDeleteParams, opts .
 /*
   SessionServiceGetUserInfo gets the current user s info
 */
-func (a *Client) SessionServiceGetUserInfo(params *SessionServiceGetUserInfoParams, opts ...ClientOption) (*SessionServiceGetUserInfoOK, error) {
+func (a *Client) SessionServiceGetUserInfo(params *SessionServiceGetUserInfoParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SessionServiceGetUserInfoOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSessionServiceGetUserInfoParams()
@@ -128,6 +130,7 @@ func (a *Client) SessionServiceGetUserInfo(params *SessionServiceGetUserInfoPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &SessionServiceGetUserInfoReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

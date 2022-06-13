@@ -28,13 +28,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsServiceCreateRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceCreateRepositoryCredentialsOK, error)
+	RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsServiceCreateRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceCreateRepositoryCredentialsOK, error)
 
-	RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsServiceDeleteRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceDeleteRepositoryCredentialsOK, error)
+	RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsServiceDeleteRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceDeleteRepositoryCredentialsOK, error)
 
-	RepoCredsServiceListRepositoryCredentials(params *RepoCredsServiceListRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceListRepositoryCredentialsOK, error)
+	RepoCredsServiceListRepositoryCredentials(params *RepoCredsServiceListRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceListRepositoryCredentialsOK, error)
 
-	RepoCredsServiceUpdateRepositoryCredentials(params *RepoCredsServiceUpdateRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceUpdateRepositoryCredentialsOK, error)
+	RepoCredsServiceUpdateRepositoryCredentials(params *RepoCredsServiceUpdateRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceUpdateRepositoryCredentialsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 /*
   RepoCredsServiceCreateRepositoryCredentials creates repository credentials creates a new repository credential set
 */
-func (a *Client) RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsServiceCreateRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceCreateRepositoryCredentialsOK, error) {
+func (a *Client) RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsServiceCreateRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceCreateRepositoryCredentialsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepoCredsServiceCreateRepositoryCredentialsParams()
@@ -56,6 +56,7 @@ func (a *Client) RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsSe
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepoCredsServiceCreateRepositoryCredentialsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -79,7 +80,7 @@ func (a *Client) RepoCredsServiceCreateRepositoryCredentials(params *RepoCredsSe
 /*
   RepoCredsServiceDeleteRepositoryCredentials deletes repository credentials deletes a repository credential set from the configuration
 */
-func (a *Client) RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsServiceDeleteRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceDeleteRepositoryCredentialsOK, error) {
+func (a *Client) RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsServiceDeleteRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceDeleteRepositoryCredentialsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepoCredsServiceDeleteRepositoryCredentialsParams()
@@ -93,6 +94,7 @@ func (a *Client) RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsSe
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepoCredsServiceDeleteRepositoryCredentialsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -116,7 +118,7 @@ func (a *Client) RepoCredsServiceDeleteRepositoryCredentials(params *RepoCredsSe
 /*
   RepoCredsServiceListRepositoryCredentials lists repository credentials gets a list of all configured repository credential sets
 */
-func (a *Client) RepoCredsServiceListRepositoryCredentials(params *RepoCredsServiceListRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceListRepositoryCredentialsOK, error) {
+func (a *Client) RepoCredsServiceListRepositoryCredentials(params *RepoCredsServiceListRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceListRepositoryCredentialsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepoCredsServiceListRepositoryCredentialsParams()
@@ -130,6 +132,7 @@ func (a *Client) RepoCredsServiceListRepositoryCredentials(params *RepoCredsServ
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepoCredsServiceListRepositoryCredentialsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -153,7 +156,7 @@ func (a *Client) RepoCredsServiceListRepositoryCredentials(params *RepoCredsServ
 /*
   RepoCredsServiceUpdateRepositoryCredentials updates repository credentials updates a repository credential set
 */
-func (a *Client) RepoCredsServiceUpdateRepositoryCredentials(params *RepoCredsServiceUpdateRepositoryCredentialsParams, opts ...ClientOption) (*RepoCredsServiceUpdateRepositoryCredentialsOK, error) {
+func (a *Client) RepoCredsServiceUpdateRepositoryCredentials(params *RepoCredsServiceUpdateRepositoryCredentialsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RepoCredsServiceUpdateRepositoryCredentialsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRepoCredsServiceUpdateRepositoryCredentialsParams()
@@ -167,6 +170,7 @@ func (a *Client) RepoCredsServiceUpdateRepositoryCredentials(params *RepoCredsSe
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &RepoCredsServiceUpdateRepositoryCredentialsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

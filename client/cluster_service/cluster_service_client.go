@@ -28,19 +28,19 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ClusterServiceCreate(params *ClusterServiceCreateParams, opts ...ClientOption) (*ClusterServiceCreateOK, error)
+	ClusterServiceCreate(params *ClusterServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceCreateOK, error)
 
-	ClusterServiceDelete(params *ClusterServiceDeleteParams, opts ...ClientOption) (*ClusterServiceDeleteOK, error)
+	ClusterServiceDelete(params *ClusterServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceDeleteOK, error)
 
-	ClusterServiceGet(params *ClusterServiceGetParams, opts ...ClientOption) (*ClusterServiceGetOK, error)
+	ClusterServiceGet(params *ClusterServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceGetOK, error)
 
-	ClusterServiceInvalidateCache(params *ClusterServiceInvalidateCacheParams, opts ...ClientOption) (*ClusterServiceInvalidateCacheOK, error)
+	ClusterServiceInvalidateCache(params *ClusterServiceInvalidateCacheParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceInvalidateCacheOK, error)
 
-	ClusterServiceList(params *ClusterServiceListParams, opts ...ClientOption) (*ClusterServiceListOK, error)
+	ClusterServiceList(params *ClusterServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceListOK, error)
 
-	ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams, opts ...ClientOption) (*ClusterServiceRotateAuthOK, error)
+	ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceRotateAuthOK, error)
 
-	ClusterServiceUpdate(params *ClusterServiceUpdateParams, opts ...ClientOption) (*ClusterServiceUpdateOK, error)
+	ClusterServiceUpdate(params *ClusterServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceUpdateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ type ClientService interface {
 /*
   ClusterServiceCreate creates creates a cluster
 */
-func (a *Client) ClusterServiceCreate(params *ClusterServiceCreateParams, opts ...ClientOption) (*ClusterServiceCreateOK, error) {
+func (a *Client) ClusterServiceCreate(params *ClusterServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceCreateParams()
@@ -62,6 +62,7 @@ func (a *Client) ClusterServiceCreate(params *ClusterServiceCreateParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -85,7 +86,7 @@ func (a *Client) ClusterServiceCreate(params *ClusterServiceCreateParams, opts .
 /*
   ClusterServiceDelete deletes deletes a cluster
 */
-func (a *Client) ClusterServiceDelete(params *ClusterServiceDeleteParams, opts ...ClientOption) (*ClusterServiceDeleteOK, error) {
+func (a *Client) ClusterServiceDelete(params *ClusterServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceDeleteParams()
@@ -99,6 +100,7 @@ func (a *Client) ClusterServiceDelete(params *ClusterServiceDeleteParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -122,7 +124,7 @@ func (a *Client) ClusterServiceDelete(params *ClusterServiceDeleteParams, opts .
 /*
   ClusterServiceGet gets returns a cluster by server address
 */
-func (a *Client) ClusterServiceGet(params *ClusterServiceGetParams, opts ...ClientOption) (*ClusterServiceGetOK, error) {
+func (a *Client) ClusterServiceGet(params *ClusterServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceGetParams()
@@ -136,6 +138,7 @@ func (a *Client) ClusterServiceGet(params *ClusterServiceGetParams, opts ...Clie
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -159,7 +162,7 @@ func (a *Client) ClusterServiceGet(params *ClusterServiceGetParams, opts ...Clie
 /*
   ClusterServiceInvalidateCache invalidates cache invalidates cluster cache
 */
-func (a *Client) ClusterServiceInvalidateCache(params *ClusterServiceInvalidateCacheParams, opts ...ClientOption) (*ClusterServiceInvalidateCacheOK, error) {
+func (a *Client) ClusterServiceInvalidateCache(params *ClusterServiceInvalidateCacheParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceInvalidateCacheOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceInvalidateCacheParams()
@@ -173,6 +176,7 @@ func (a *Client) ClusterServiceInvalidateCache(params *ClusterServiceInvalidateC
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceInvalidateCacheReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -196,7 +200,7 @@ func (a *Client) ClusterServiceInvalidateCache(params *ClusterServiceInvalidateC
 /*
   ClusterServiceList lists returns list of clusters
 */
-func (a *Client) ClusterServiceList(params *ClusterServiceListParams, opts ...ClientOption) (*ClusterServiceListOK, error) {
+func (a *Client) ClusterServiceList(params *ClusterServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceListParams()
@@ -210,6 +214,7 @@ func (a *Client) ClusterServiceList(params *ClusterServiceListParams, opts ...Cl
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceListReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -233,7 +238,7 @@ func (a *Client) ClusterServiceList(params *ClusterServiceListParams, opts ...Cl
 /*
   ClusterServiceRotateAuth rotates auth rotates the bearer token used for a cluster
 */
-func (a *Client) ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams, opts ...ClientOption) (*ClusterServiceRotateAuthOK, error) {
+func (a *Client) ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceRotateAuthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceRotateAuthParams()
@@ -247,6 +252,7 @@ func (a *Client) ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceRotateAuthReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -270,7 +276,7 @@ func (a *Client) ClusterServiceRotateAuth(params *ClusterServiceRotateAuthParams
 /*
   ClusterServiceUpdate updates updates a cluster
 */
-func (a *Client) ClusterServiceUpdate(params *ClusterServiceUpdateParams, opts ...ClientOption) (*ClusterServiceUpdateOK, error) {
+func (a *Client) ClusterServiceUpdate(params *ClusterServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ClusterServiceUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClusterServiceUpdateParams()
@@ -284,6 +290,7 @@ func (a *Client) ClusterServiceUpdate(params *ClusterServiceUpdateParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ClusterServiceUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

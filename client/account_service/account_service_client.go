@@ -28,17 +28,17 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AccountServiceCanI(params *AccountServiceCanIParams, opts ...ClientOption) (*AccountServiceCanIOK, error)
+	AccountServiceCanI(params *AccountServiceCanIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceCanIOK, error)
 
-	AccountServiceCreateToken(params *AccountServiceCreateTokenParams, opts ...ClientOption) (*AccountServiceCreateTokenOK, error)
+	AccountServiceCreateToken(params *AccountServiceCreateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceCreateTokenOK, error)
 
-	AccountServiceDeleteToken(params *AccountServiceDeleteTokenParams, opts ...ClientOption) (*AccountServiceDeleteTokenOK, error)
+	AccountServiceDeleteToken(params *AccountServiceDeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceDeleteTokenOK, error)
 
-	AccountServiceGetAccount(params *AccountServiceGetAccountParams, opts ...ClientOption) (*AccountServiceGetAccountOK, error)
+	AccountServiceGetAccount(params *AccountServiceGetAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceGetAccountOK, error)
 
-	AccountServiceListAccounts(params *AccountServiceListAccountsParams, opts ...ClientOption) (*AccountServiceListAccountsOK, error)
+	AccountServiceListAccounts(params *AccountServiceListAccountsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceListAccountsOK, error)
 
-	AccountServiceUpdatePassword(params *AccountServiceUpdatePasswordParams, opts ...ClientOption) (*AccountServiceUpdatePasswordOK, error)
+	AccountServiceUpdatePassword(params *AccountServiceUpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceUpdatePasswordOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
   AccountServiceCanI cans i checks if the current account has permission to perform an action
 */
-func (a *Client) AccountServiceCanI(params *AccountServiceCanIParams, opts ...ClientOption) (*AccountServiceCanIOK, error) {
+func (a *Client) AccountServiceCanI(params *AccountServiceCanIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceCanIOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceCanIParams()
@@ -60,6 +60,7 @@ func (a *Client) AccountServiceCanI(params *AccountServiceCanIParams, opts ...Cl
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceCanIReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -83,7 +84,7 @@ func (a *Client) AccountServiceCanI(params *AccountServiceCanIParams, opts ...Cl
 /*
   AccountServiceCreateToken creates token creates a token
 */
-func (a *Client) AccountServiceCreateToken(params *AccountServiceCreateTokenParams, opts ...ClientOption) (*AccountServiceCreateTokenOK, error) {
+func (a *Client) AccountServiceCreateToken(params *AccountServiceCreateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceCreateTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceCreateTokenParams()
@@ -97,6 +98,7 @@ func (a *Client) AccountServiceCreateToken(params *AccountServiceCreateTokenPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceCreateTokenReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -120,7 +122,7 @@ func (a *Client) AccountServiceCreateToken(params *AccountServiceCreateTokenPara
 /*
   AccountServiceDeleteToken deletes token deletes a token
 */
-func (a *Client) AccountServiceDeleteToken(params *AccountServiceDeleteTokenParams, opts ...ClientOption) (*AccountServiceDeleteTokenOK, error) {
+func (a *Client) AccountServiceDeleteToken(params *AccountServiceDeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceDeleteTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceDeleteTokenParams()
@@ -134,6 +136,7 @@ func (a *Client) AccountServiceDeleteToken(params *AccountServiceDeleteTokenPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceDeleteTokenReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -157,7 +160,7 @@ func (a *Client) AccountServiceDeleteToken(params *AccountServiceDeleteTokenPara
 /*
   AccountServiceGetAccount gets account returns an account
 */
-func (a *Client) AccountServiceGetAccount(params *AccountServiceGetAccountParams, opts ...ClientOption) (*AccountServiceGetAccountOK, error) {
+func (a *Client) AccountServiceGetAccount(params *AccountServiceGetAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceGetAccountOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceGetAccountParams()
@@ -171,6 +174,7 @@ func (a *Client) AccountServiceGetAccount(params *AccountServiceGetAccountParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceGetAccountReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -194,7 +198,7 @@ func (a *Client) AccountServiceGetAccount(params *AccountServiceGetAccountParams
 /*
   AccountServiceListAccounts lists accounts returns the list of accounts
 */
-func (a *Client) AccountServiceListAccounts(params *AccountServiceListAccountsParams, opts ...ClientOption) (*AccountServiceListAccountsOK, error) {
+func (a *Client) AccountServiceListAccounts(params *AccountServiceListAccountsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceListAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceListAccountsParams()
@@ -208,6 +212,7 @@ func (a *Client) AccountServiceListAccounts(params *AccountServiceListAccountsPa
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceListAccountsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -231,7 +236,7 @@ func (a *Client) AccountServiceListAccounts(params *AccountServiceListAccountsPa
 /*
   AccountServiceUpdatePassword updates password updates an account s password to a new value
 */
-func (a *Client) AccountServiceUpdatePassword(params *AccountServiceUpdatePasswordParams, opts ...ClientOption) (*AccountServiceUpdatePasswordOK, error) {
+func (a *Client) AccountServiceUpdatePassword(params *AccountServiceUpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*AccountServiceUpdatePasswordOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountServiceUpdatePasswordParams()
@@ -245,6 +250,7 @@ func (a *Client) AccountServiceUpdatePassword(params *AccountServiceUpdatePasswo
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &AccountServiceUpdatePasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

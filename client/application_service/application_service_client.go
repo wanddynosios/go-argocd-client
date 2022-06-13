@@ -28,55 +28,55 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ApplicationServiceCreate(params *ApplicationServiceCreateParams, opts ...ClientOption) (*ApplicationServiceCreateOK, error)
+	ApplicationServiceCreate(params *ApplicationServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceCreateOK, error)
 
-	ApplicationServiceDelete(params *ApplicationServiceDeleteParams, opts ...ClientOption) (*ApplicationServiceDeleteOK, error)
+	ApplicationServiceDelete(params *ApplicationServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceDeleteOK, error)
 
-	ApplicationServiceDeleteResource(params *ApplicationServiceDeleteResourceParams, opts ...ClientOption) (*ApplicationServiceDeleteResourceOK, error)
+	ApplicationServiceDeleteResource(params *ApplicationServiceDeleteResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceDeleteResourceOK, error)
 
-	ApplicationServiceGet(params *ApplicationServiceGetParams, opts ...ClientOption) (*ApplicationServiceGetOK, error)
+	ApplicationServiceGet(params *ApplicationServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetOK, error)
 
-	ApplicationServiceGetApplicationSyncWindows(params *ApplicationServiceGetApplicationSyncWindowsParams, opts ...ClientOption) (*ApplicationServiceGetApplicationSyncWindowsOK, error)
+	ApplicationServiceGetApplicationSyncWindows(params *ApplicationServiceGetApplicationSyncWindowsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetApplicationSyncWindowsOK, error)
 
-	ApplicationServiceGetManifests(params *ApplicationServiceGetManifestsParams, opts ...ClientOption) (*ApplicationServiceGetManifestsOK, error)
+	ApplicationServiceGetManifests(params *ApplicationServiceGetManifestsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetManifestsOK, error)
 
-	ApplicationServiceGetResource(params *ApplicationServiceGetResourceParams, opts ...ClientOption) (*ApplicationServiceGetResourceOK, error)
+	ApplicationServiceGetResource(params *ApplicationServiceGetResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetResourceOK, error)
 
-	ApplicationServiceList(params *ApplicationServiceListParams, opts ...ClientOption) (*ApplicationServiceListOK, error)
+	ApplicationServiceList(params *ApplicationServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListOK, error)
 
-	ApplicationServiceListResourceActions(params *ApplicationServiceListResourceActionsParams, opts ...ClientOption) (*ApplicationServiceListResourceActionsOK, error)
+	ApplicationServiceListResourceActions(params *ApplicationServiceListResourceActionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListResourceActionsOK, error)
 
-	ApplicationServiceListResourceEvents(params *ApplicationServiceListResourceEventsParams, opts ...ClientOption) (*ApplicationServiceListResourceEventsOK, error)
+	ApplicationServiceListResourceEvents(params *ApplicationServiceListResourceEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListResourceEventsOK, error)
 
-	ApplicationServiceManagedResources(params *ApplicationServiceManagedResourcesParams, opts ...ClientOption) (*ApplicationServiceManagedResourcesOK, error)
+	ApplicationServiceManagedResources(params *ApplicationServiceManagedResourcesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceManagedResourcesOK, error)
 
-	ApplicationServicePatch(params *ApplicationServicePatchParams, opts ...ClientOption) (*ApplicationServicePatchOK, error)
+	ApplicationServicePatch(params *ApplicationServicePatchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePatchOK, error)
 
-	ApplicationServicePatchResource(params *ApplicationServicePatchResourceParams, opts ...ClientOption) (*ApplicationServicePatchResourceOK, error)
+	ApplicationServicePatchResource(params *ApplicationServicePatchResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePatchResourceOK, error)
 
-	ApplicationServicePodLogs(params *ApplicationServicePodLogsParams, opts ...ClientOption) (*ApplicationServicePodLogsOK, error)
+	ApplicationServicePodLogs(params *ApplicationServicePodLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePodLogsOK, error)
 
-	ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Params, opts ...ClientOption) (*ApplicationServicePodLogs2OK, error)
+	ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePodLogs2OK, error)
 
-	ApplicationServiceResourceTree(params *ApplicationServiceResourceTreeParams, opts ...ClientOption) (*ApplicationServiceResourceTreeOK, error)
+	ApplicationServiceResourceTree(params *ApplicationServiceResourceTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceResourceTreeOK, error)
 
-	ApplicationServiceRevisionMetadata(params *ApplicationServiceRevisionMetadataParams, opts ...ClientOption) (*ApplicationServiceRevisionMetadataOK, error)
+	ApplicationServiceRevisionMetadata(params *ApplicationServiceRevisionMetadataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRevisionMetadataOK, error)
 
-	ApplicationServiceRollback(params *ApplicationServiceRollbackParams, opts ...ClientOption) (*ApplicationServiceRollbackOK, error)
+	ApplicationServiceRollback(params *ApplicationServiceRollbackParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRollbackOK, error)
 
-	ApplicationServiceRunResourceAction(params *ApplicationServiceRunResourceActionParams, opts ...ClientOption) (*ApplicationServiceRunResourceActionOK, error)
+	ApplicationServiceRunResourceAction(params *ApplicationServiceRunResourceActionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRunResourceActionOK, error)
 
-	ApplicationServiceSync(params *ApplicationServiceSyncParams, opts ...ClientOption) (*ApplicationServiceSyncOK, error)
+	ApplicationServiceSync(params *ApplicationServiceSyncParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceSyncOK, error)
 
-	ApplicationServiceTerminateOperation(params *ApplicationServiceTerminateOperationParams, opts ...ClientOption) (*ApplicationServiceTerminateOperationOK, error)
+	ApplicationServiceTerminateOperation(params *ApplicationServiceTerminateOperationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceTerminateOperationOK, error)
 
-	ApplicationServiceUpdate(params *ApplicationServiceUpdateParams, opts ...ClientOption) (*ApplicationServiceUpdateOK, error)
+	ApplicationServiceUpdate(params *ApplicationServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceUpdateOK, error)
 
-	ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSpecParams, opts ...ClientOption) (*ApplicationServiceUpdateSpecOK, error)
+	ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSpecParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceUpdateSpecOK, error)
 
-	ApplicationServiceWatch(params *ApplicationServiceWatchParams, opts ...ClientOption) (*ApplicationServiceWatchOK, error)
+	ApplicationServiceWatch(params *ApplicationServiceWatchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceWatchOK, error)
 
-	ApplicationServiceWatchResourceTree(params *ApplicationServiceWatchResourceTreeParams, opts ...ClientOption) (*ApplicationServiceWatchResourceTreeOK, error)
+	ApplicationServiceWatchResourceTree(params *ApplicationServiceWatchResourceTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceWatchResourceTreeOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -84,7 +84,7 @@ type ClientService interface {
 /*
   ApplicationServiceCreate creates creates an application
 */
-func (a *Client) ApplicationServiceCreate(params *ApplicationServiceCreateParams, opts ...ClientOption) (*ApplicationServiceCreateOK, error) {
+func (a *Client) ApplicationServiceCreate(params *ApplicationServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceCreateParams()
@@ -98,6 +98,7 @@ func (a *Client) ApplicationServiceCreate(params *ApplicationServiceCreateParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -121,7 +122,7 @@ func (a *Client) ApplicationServiceCreate(params *ApplicationServiceCreateParams
 /*
   ApplicationServiceDelete deletes deletes an application
 */
-func (a *Client) ApplicationServiceDelete(params *ApplicationServiceDeleteParams, opts ...ClientOption) (*ApplicationServiceDeleteOK, error) {
+func (a *Client) ApplicationServiceDelete(params *ApplicationServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceDeleteParams()
@@ -135,6 +136,7 @@ func (a *Client) ApplicationServiceDelete(params *ApplicationServiceDeleteParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -158,7 +160,7 @@ func (a *Client) ApplicationServiceDelete(params *ApplicationServiceDeleteParams
 /*
   ApplicationServiceDeleteResource deletes resource deletes a single application resource
 */
-func (a *Client) ApplicationServiceDeleteResource(params *ApplicationServiceDeleteResourceParams, opts ...ClientOption) (*ApplicationServiceDeleteResourceOK, error) {
+func (a *Client) ApplicationServiceDeleteResource(params *ApplicationServiceDeleteResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceDeleteResourceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceDeleteResourceParams()
@@ -172,6 +174,7 @@ func (a *Client) ApplicationServiceDeleteResource(params *ApplicationServiceDele
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceDeleteResourceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -195,7 +198,7 @@ func (a *Client) ApplicationServiceDeleteResource(params *ApplicationServiceDele
 /*
   ApplicationServiceGet gets returns an application by name
 */
-func (a *Client) ApplicationServiceGet(params *ApplicationServiceGetParams, opts ...ClientOption) (*ApplicationServiceGetOK, error) {
+func (a *Client) ApplicationServiceGet(params *ApplicationServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceGetParams()
@@ -209,6 +212,7 @@ func (a *Client) ApplicationServiceGet(params *ApplicationServiceGetParams, opts
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -232,7 +236,7 @@ func (a *Client) ApplicationServiceGet(params *ApplicationServiceGetParams, opts
 /*
   ApplicationServiceGetApplicationSyncWindows gets returns sync windows of the application
 */
-func (a *Client) ApplicationServiceGetApplicationSyncWindows(params *ApplicationServiceGetApplicationSyncWindowsParams, opts ...ClientOption) (*ApplicationServiceGetApplicationSyncWindowsOK, error) {
+func (a *Client) ApplicationServiceGetApplicationSyncWindows(params *ApplicationServiceGetApplicationSyncWindowsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetApplicationSyncWindowsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceGetApplicationSyncWindowsParams()
@@ -246,6 +250,7 @@ func (a *Client) ApplicationServiceGetApplicationSyncWindows(params *Application
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceGetApplicationSyncWindowsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -269,7 +274,7 @@ func (a *Client) ApplicationServiceGetApplicationSyncWindows(params *Application
 /*
   ApplicationServiceGetManifests gets manifests returns application manifests
 */
-func (a *Client) ApplicationServiceGetManifests(params *ApplicationServiceGetManifestsParams, opts ...ClientOption) (*ApplicationServiceGetManifestsOK, error) {
+func (a *Client) ApplicationServiceGetManifests(params *ApplicationServiceGetManifestsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetManifestsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceGetManifestsParams()
@@ -283,6 +288,7 @@ func (a *Client) ApplicationServiceGetManifests(params *ApplicationServiceGetMan
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceGetManifestsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -306,7 +312,7 @@ func (a *Client) ApplicationServiceGetManifests(params *ApplicationServiceGetMan
 /*
   ApplicationServiceGetResource gets resource returns single application resource
 */
-func (a *Client) ApplicationServiceGetResource(params *ApplicationServiceGetResourceParams, opts ...ClientOption) (*ApplicationServiceGetResourceOK, error) {
+func (a *Client) ApplicationServiceGetResource(params *ApplicationServiceGetResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceGetResourceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceGetResourceParams()
@@ -320,6 +326,7 @@ func (a *Client) ApplicationServiceGetResource(params *ApplicationServiceGetReso
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceGetResourceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -343,7 +350,7 @@ func (a *Client) ApplicationServiceGetResource(params *ApplicationServiceGetReso
 /*
   ApplicationServiceList lists returns list of applications
 */
-func (a *Client) ApplicationServiceList(params *ApplicationServiceListParams, opts ...ClientOption) (*ApplicationServiceListOK, error) {
+func (a *Client) ApplicationServiceList(params *ApplicationServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceListParams()
@@ -357,6 +364,7 @@ func (a *Client) ApplicationServiceList(params *ApplicationServiceListParams, op
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceListReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -380,7 +388,7 @@ func (a *Client) ApplicationServiceList(params *ApplicationServiceListParams, op
 /*
   ApplicationServiceListResourceActions lists resource actions returns list of resource actions
 */
-func (a *Client) ApplicationServiceListResourceActions(params *ApplicationServiceListResourceActionsParams, opts ...ClientOption) (*ApplicationServiceListResourceActionsOK, error) {
+func (a *Client) ApplicationServiceListResourceActions(params *ApplicationServiceListResourceActionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListResourceActionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceListResourceActionsParams()
@@ -394,6 +402,7 @@ func (a *Client) ApplicationServiceListResourceActions(params *ApplicationServic
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceListResourceActionsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -417,7 +426,7 @@ func (a *Client) ApplicationServiceListResourceActions(params *ApplicationServic
 /*
   ApplicationServiceListResourceEvents lists resource events returns a list of event resources
 */
-func (a *Client) ApplicationServiceListResourceEvents(params *ApplicationServiceListResourceEventsParams, opts ...ClientOption) (*ApplicationServiceListResourceEventsOK, error) {
+func (a *Client) ApplicationServiceListResourceEvents(params *ApplicationServiceListResourceEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceListResourceEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceListResourceEventsParams()
@@ -431,6 +440,7 @@ func (a *Client) ApplicationServiceListResourceEvents(params *ApplicationService
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceListResourceEventsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -454,7 +464,7 @@ func (a *Client) ApplicationServiceListResourceEvents(params *ApplicationService
 /*
   ApplicationServiceManagedResources manageds resources returns list of managed resources
 */
-func (a *Client) ApplicationServiceManagedResources(params *ApplicationServiceManagedResourcesParams, opts ...ClientOption) (*ApplicationServiceManagedResourcesOK, error) {
+func (a *Client) ApplicationServiceManagedResources(params *ApplicationServiceManagedResourcesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceManagedResourcesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceManagedResourcesParams()
@@ -468,6 +478,7 @@ func (a *Client) ApplicationServiceManagedResources(params *ApplicationServiceMa
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceManagedResourcesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -491,7 +502,7 @@ func (a *Client) ApplicationServiceManagedResources(params *ApplicationServiceMa
 /*
   ApplicationServicePatch patches patch an application
 */
-func (a *Client) ApplicationServicePatch(params *ApplicationServicePatchParams, opts ...ClientOption) (*ApplicationServicePatchOK, error) {
+func (a *Client) ApplicationServicePatch(params *ApplicationServicePatchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePatchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServicePatchParams()
@@ -505,6 +516,7 @@ func (a *Client) ApplicationServicePatch(params *ApplicationServicePatchParams, 
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServicePatchReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -528,7 +540,7 @@ func (a *Client) ApplicationServicePatch(params *ApplicationServicePatchParams, 
 /*
   ApplicationServicePatchResource patches resource patch single application resource
 */
-func (a *Client) ApplicationServicePatchResource(params *ApplicationServicePatchResourceParams, opts ...ClientOption) (*ApplicationServicePatchResourceOK, error) {
+func (a *Client) ApplicationServicePatchResource(params *ApplicationServicePatchResourceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePatchResourceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServicePatchResourceParams()
@@ -542,6 +554,7 @@ func (a *Client) ApplicationServicePatchResource(params *ApplicationServicePatch
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServicePatchResourceReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -565,7 +578,7 @@ func (a *Client) ApplicationServicePatchResource(params *ApplicationServicePatch
 /*
   ApplicationServicePodLogs pods logs returns stream of log entries for the specified pod pod
 */
-func (a *Client) ApplicationServicePodLogs(params *ApplicationServicePodLogsParams, opts ...ClientOption) (*ApplicationServicePodLogsOK, error) {
+func (a *Client) ApplicationServicePodLogs(params *ApplicationServicePodLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePodLogsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServicePodLogsParams()
@@ -579,6 +592,7 @@ func (a *Client) ApplicationServicePodLogs(params *ApplicationServicePodLogsPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServicePodLogsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -602,7 +616,7 @@ func (a *Client) ApplicationServicePodLogs(params *ApplicationServicePodLogsPara
 /*
   ApplicationServicePodLogs2 pods logs returns stream of log entries for the specified pod pod
 */
-func (a *Client) ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Params, opts ...ClientOption) (*ApplicationServicePodLogs2OK, error) {
+func (a *Client) ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServicePodLogs2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServicePodLogs2Params()
@@ -616,6 +630,7 @@ func (a *Client) ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Pa
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServicePodLogs2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -639,7 +654,7 @@ func (a *Client) ApplicationServicePodLogs2(params *ApplicationServicePodLogs2Pa
 /*
   ApplicationServiceResourceTree resources tree returns resource tree
 */
-func (a *Client) ApplicationServiceResourceTree(params *ApplicationServiceResourceTreeParams, opts ...ClientOption) (*ApplicationServiceResourceTreeOK, error) {
+func (a *Client) ApplicationServiceResourceTree(params *ApplicationServiceResourceTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceResourceTreeOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceResourceTreeParams()
@@ -653,6 +668,7 @@ func (a *Client) ApplicationServiceResourceTree(params *ApplicationServiceResour
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceResourceTreeReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -676,7 +692,7 @@ func (a *Client) ApplicationServiceResourceTree(params *ApplicationServiceResour
 /*
   ApplicationServiceRevisionMetadata gets the meta data author date tags message for a specific revision of the application
 */
-func (a *Client) ApplicationServiceRevisionMetadata(params *ApplicationServiceRevisionMetadataParams, opts ...ClientOption) (*ApplicationServiceRevisionMetadataOK, error) {
+func (a *Client) ApplicationServiceRevisionMetadata(params *ApplicationServiceRevisionMetadataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRevisionMetadataOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceRevisionMetadataParams()
@@ -690,6 +706,7 @@ func (a *Client) ApplicationServiceRevisionMetadata(params *ApplicationServiceRe
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceRevisionMetadataReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -713,7 +730,7 @@ func (a *Client) ApplicationServiceRevisionMetadata(params *ApplicationServiceRe
 /*
   ApplicationServiceRollback rollbacks syncs an application to its target state
 */
-func (a *Client) ApplicationServiceRollback(params *ApplicationServiceRollbackParams, opts ...ClientOption) (*ApplicationServiceRollbackOK, error) {
+func (a *Client) ApplicationServiceRollback(params *ApplicationServiceRollbackParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRollbackOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceRollbackParams()
@@ -727,6 +744,7 @@ func (a *Client) ApplicationServiceRollback(params *ApplicationServiceRollbackPa
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceRollbackReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -750,7 +768,7 @@ func (a *Client) ApplicationServiceRollback(params *ApplicationServiceRollbackPa
 /*
   ApplicationServiceRunResourceAction runs resource action run resource action
 */
-func (a *Client) ApplicationServiceRunResourceAction(params *ApplicationServiceRunResourceActionParams, opts ...ClientOption) (*ApplicationServiceRunResourceActionOK, error) {
+func (a *Client) ApplicationServiceRunResourceAction(params *ApplicationServiceRunResourceActionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceRunResourceActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceRunResourceActionParams()
@@ -764,6 +782,7 @@ func (a *Client) ApplicationServiceRunResourceAction(params *ApplicationServiceR
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceRunResourceActionReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -787,7 +806,7 @@ func (a *Client) ApplicationServiceRunResourceAction(params *ApplicationServiceR
 /*
   ApplicationServiceSync syncs syncs an application to its target state
 */
-func (a *Client) ApplicationServiceSync(params *ApplicationServiceSyncParams, opts ...ClientOption) (*ApplicationServiceSyncOK, error) {
+func (a *Client) ApplicationServiceSync(params *ApplicationServiceSyncParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceSyncOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceSyncParams()
@@ -801,6 +820,7 @@ func (a *Client) ApplicationServiceSync(params *ApplicationServiceSyncParams, op
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceSyncReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -824,7 +844,7 @@ func (a *Client) ApplicationServiceSync(params *ApplicationServiceSyncParams, op
 /*
   ApplicationServiceTerminateOperation terminates operation terminates the currently running operation
 */
-func (a *Client) ApplicationServiceTerminateOperation(params *ApplicationServiceTerminateOperationParams, opts ...ClientOption) (*ApplicationServiceTerminateOperationOK, error) {
+func (a *Client) ApplicationServiceTerminateOperation(params *ApplicationServiceTerminateOperationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceTerminateOperationOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceTerminateOperationParams()
@@ -838,6 +858,7 @@ func (a *Client) ApplicationServiceTerminateOperation(params *ApplicationService
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceTerminateOperationReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -861,7 +882,7 @@ func (a *Client) ApplicationServiceTerminateOperation(params *ApplicationService
 /*
   ApplicationServiceUpdate updates updates an application
 */
-func (a *Client) ApplicationServiceUpdate(params *ApplicationServiceUpdateParams, opts ...ClientOption) (*ApplicationServiceUpdateOK, error) {
+func (a *Client) ApplicationServiceUpdate(params *ApplicationServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceUpdateParams()
@@ -875,6 +896,7 @@ func (a *Client) ApplicationServiceUpdate(params *ApplicationServiceUpdateParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -898,7 +920,7 @@ func (a *Client) ApplicationServiceUpdate(params *ApplicationServiceUpdateParams
 /*
   ApplicationServiceUpdateSpec updates spec updates an application spec
 */
-func (a *Client) ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSpecParams, opts ...ClientOption) (*ApplicationServiceUpdateSpecOK, error) {
+func (a *Client) ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSpecParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceUpdateSpecOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceUpdateSpecParams()
@@ -912,6 +934,7 @@ func (a *Client) ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSp
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceUpdateSpecReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -935,7 +958,7 @@ func (a *Client) ApplicationServiceUpdateSpec(params *ApplicationServiceUpdateSp
 /*
   ApplicationServiceWatch watches returns stream of application change events
 */
-func (a *Client) ApplicationServiceWatch(params *ApplicationServiceWatchParams, opts ...ClientOption) (*ApplicationServiceWatchOK, error) {
+func (a *Client) ApplicationServiceWatch(params *ApplicationServiceWatchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceWatchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceWatchParams()
@@ -949,6 +972,7 @@ func (a *Client) ApplicationServiceWatch(params *ApplicationServiceWatchParams, 
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceWatchReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -972,7 +996,7 @@ func (a *Client) ApplicationServiceWatch(params *ApplicationServiceWatchParams, 
 /*
   ApplicationServiceWatchResourceTree watches returns stream of application resource tree
 */
-func (a *Client) ApplicationServiceWatchResourceTree(params *ApplicationServiceWatchResourceTreeParams, opts ...ClientOption) (*ApplicationServiceWatchResourceTreeOK, error) {
+func (a *Client) ApplicationServiceWatchResourceTree(params *ApplicationServiceWatchResourceTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApplicationServiceWatchResourceTreeOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplicationServiceWatchResourceTreeParams()
@@ -986,6 +1010,7 @@ func (a *Client) ApplicationServiceWatchResourceTree(params *ApplicationServiceW
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ApplicationServiceWatchResourceTreeReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

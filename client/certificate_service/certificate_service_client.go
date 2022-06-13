@@ -28,11 +28,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CertificateServiceCreateCertificate(params *CertificateServiceCreateCertificateParams, opts ...ClientOption) (*CertificateServiceCreateCertificateOK, error)
+	CertificateServiceCreateCertificate(params *CertificateServiceCreateCertificateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceCreateCertificateOK, error)
 
-	CertificateServiceDeleteCertificate(params *CertificateServiceDeleteCertificateParams, opts ...ClientOption) (*CertificateServiceDeleteCertificateOK, error)
+	CertificateServiceDeleteCertificate(params *CertificateServiceDeleteCertificateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceDeleteCertificateOK, error)
 
-	CertificateServiceListCertificates(params *CertificateServiceListCertificatesParams, opts ...ClientOption) (*CertificateServiceListCertificatesOK, error)
+	CertificateServiceListCertificates(params *CertificateServiceListCertificatesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceListCertificatesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 /*
   CertificateServiceCreateCertificate creates repository certificates on the server
 */
-func (a *Client) CertificateServiceCreateCertificate(params *CertificateServiceCreateCertificateParams, opts ...ClientOption) (*CertificateServiceCreateCertificateOK, error) {
+func (a *Client) CertificateServiceCreateCertificate(params *CertificateServiceCreateCertificateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceCreateCertificateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCertificateServiceCreateCertificateParams()
@@ -54,6 +54,7 @@ func (a *Client) CertificateServiceCreateCertificate(params *CertificateServiceC
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &CertificateServiceCreateCertificateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -77,7 +78,7 @@ func (a *Client) CertificateServiceCreateCertificate(params *CertificateServiceC
 /*
   CertificateServiceDeleteCertificate deletes the certificates that match the repository certificate query
 */
-func (a *Client) CertificateServiceDeleteCertificate(params *CertificateServiceDeleteCertificateParams, opts ...ClientOption) (*CertificateServiceDeleteCertificateOK, error) {
+func (a *Client) CertificateServiceDeleteCertificate(params *CertificateServiceDeleteCertificateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceDeleteCertificateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCertificateServiceDeleteCertificateParams()
@@ -91,6 +92,7 @@ func (a *Client) CertificateServiceDeleteCertificate(params *CertificateServiceD
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &CertificateServiceDeleteCertificateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -114,7 +116,7 @@ func (a *Client) CertificateServiceDeleteCertificate(params *CertificateServiceD
 /*
   CertificateServiceListCertificates lists all available repository certificates
 */
-func (a *Client) CertificateServiceListCertificates(params *CertificateServiceListCertificatesParams, opts ...ClientOption) (*CertificateServiceListCertificatesOK, error) {
+func (a *Client) CertificateServiceListCertificates(params *CertificateServiceListCertificatesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CertificateServiceListCertificatesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCertificateServiceListCertificatesParams()
@@ -128,6 +130,7 @@ func (a *Client) CertificateServiceListCertificates(params *CertificateServiceLi
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &CertificateServiceListCertificatesReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

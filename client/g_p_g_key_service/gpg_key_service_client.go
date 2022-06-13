@@ -28,13 +28,13 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, opts ...ClientOption) (*GPGKeyServiceCreateOK, error)
+	GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceCreateOK, error)
 
-	GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, opts ...ClientOption) (*GPGKeyServiceDeleteOK, error)
+	GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceDeleteOK, error)
 
-	GPGKeyServiceGet(params *GPGKeyServiceGetParams, opts ...ClientOption) (*GPGKeyServiceGetOK, error)
+	GPGKeyServiceGet(params *GPGKeyServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceGetOK, error)
 
-	GPGKeyServiceList(params *GPGKeyServiceListParams, opts ...ClientOption) (*GPGKeyServiceListOK, error)
+	GPGKeyServiceList(params *GPGKeyServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceListOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 /*
   GPGKeyServiceCreate creates one or more g p g public keys in the server s configuration
 */
-func (a *Client) GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, opts ...ClientOption) (*GPGKeyServiceCreateOK, error) {
+func (a *Client) GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGPGKeyServiceCreateParams()
@@ -56,6 +56,7 @@ func (a *Client) GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, opts ...
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GPGKeyServiceCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -79,7 +80,7 @@ func (a *Client) GPGKeyServiceCreate(params *GPGKeyServiceCreateParams, opts ...
 /*
   GPGKeyServiceDelete deletes specified g p g public key from the server s configuration
 */
-func (a *Client) GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, opts ...ClientOption) (*GPGKeyServiceDeleteOK, error) {
+func (a *Client) GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGPGKeyServiceDeleteParams()
@@ -93,6 +94,7 @@ func (a *Client) GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, opts ...
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GPGKeyServiceDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -116,7 +118,7 @@ func (a *Client) GPGKeyServiceDelete(params *GPGKeyServiceDeleteParams, opts ...
 /*
   GPGKeyServiceGet gets information about specified g p g public key from the server
 */
-func (a *Client) GPGKeyServiceGet(params *GPGKeyServiceGetParams, opts ...ClientOption) (*GPGKeyServiceGetOK, error) {
+func (a *Client) GPGKeyServiceGet(params *GPGKeyServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGPGKeyServiceGetParams()
@@ -130,6 +132,7 @@ func (a *Client) GPGKeyServiceGet(params *GPGKeyServiceGetParams, opts ...Client
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GPGKeyServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -153,7 +156,7 @@ func (a *Client) GPGKeyServiceGet(params *GPGKeyServiceGetParams, opts ...Client
 /*
   GPGKeyServiceList lists all available repository certificates
 */
-func (a *Client) GPGKeyServiceList(params *GPGKeyServiceListParams, opts ...ClientOption) (*GPGKeyServiceListOK, error) {
+func (a *Client) GPGKeyServiceList(params *GPGKeyServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GPGKeyServiceListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGPGKeyServiceListParams()
@@ -167,6 +170,7 @@ func (a *Client) GPGKeyServiceList(params *GPGKeyServiceListParams, opts ...Clie
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GPGKeyServiceListReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

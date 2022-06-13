@@ -28,27 +28,27 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ProjectServiceCreate(params *ProjectServiceCreateParams, opts ...ClientOption) (*ProjectServiceCreateOK, error)
+	ProjectServiceCreate(params *ProjectServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceCreateOK, error)
 
-	ProjectServiceCreateToken(params *ProjectServiceCreateTokenParams, opts ...ClientOption) (*ProjectServiceCreateTokenOK, error)
+	ProjectServiceCreateToken(params *ProjectServiceCreateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceCreateTokenOK, error)
 
-	ProjectServiceDelete(params *ProjectServiceDeleteParams, opts ...ClientOption) (*ProjectServiceDeleteOK, error)
+	ProjectServiceDelete(params *ProjectServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceDeleteOK, error)
 
-	ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenParams, opts ...ClientOption) (*ProjectServiceDeleteTokenOK, error)
+	ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceDeleteTokenOK, error)
 
-	ProjectServiceGet(params *ProjectServiceGetParams, opts ...ClientOption) (*ProjectServiceGetOK, error)
+	ProjectServiceGet(params *ProjectServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetOK, error)
 
-	ProjectServiceGetDetailedProject(params *ProjectServiceGetDetailedProjectParams, opts ...ClientOption) (*ProjectServiceGetDetailedProjectOK, error)
+	ProjectServiceGetDetailedProject(params *ProjectServiceGetDetailedProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetDetailedProjectOK, error)
 
-	ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobalProjectsParams, opts ...ClientOption) (*ProjectServiceGetGlobalProjectsOK, error)
+	ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobalProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetGlobalProjectsOK, error)
 
-	ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSyncWindowsStateParams, opts ...ClientOption) (*ProjectServiceGetSyncWindowsStateOK, error)
+	ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSyncWindowsStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetSyncWindowsStateOK, error)
 
-	ProjectServiceList(params *ProjectServiceListParams, opts ...ClientOption) (*ProjectServiceListOK, error)
+	ProjectServiceList(params *ProjectServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceListOK, error)
 
-	ProjectServiceListEvents(params *ProjectServiceListEventsParams, opts ...ClientOption) (*ProjectServiceListEventsOK, error)
+	ProjectServiceListEvents(params *ProjectServiceListEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceListEventsOK, error)
 
-	ProjectServiceUpdate(params *ProjectServiceUpdateParams, opts ...ClientOption) (*ProjectServiceUpdateOK, error)
+	ProjectServiceUpdate(params *ProjectServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceUpdateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ type ClientService interface {
 /*
   ProjectServiceCreate creates a new project
 */
-func (a *Client) ProjectServiceCreate(params *ProjectServiceCreateParams, opts ...ClientOption) (*ProjectServiceCreateOK, error) {
+func (a *Client) ProjectServiceCreate(params *ProjectServiceCreateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceCreateParams()
@@ -70,6 +70,7 @@ func (a *Client) ProjectServiceCreate(params *ProjectServiceCreateParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -93,7 +94,7 @@ func (a *Client) ProjectServiceCreate(params *ProjectServiceCreateParams, opts .
 /*
   ProjectServiceCreateToken creates a new project token
 */
-func (a *Client) ProjectServiceCreateToken(params *ProjectServiceCreateTokenParams, opts ...ClientOption) (*ProjectServiceCreateTokenOK, error) {
+func (a *Client) ProjectServiceCreateToken(params *ProjectServiceCreateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceCreateTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceCreateTokenParams()
@@ -107,6 +108,7 @@ func (a *Client) ProjectServiceCreateToken(params *ProjectServiceCreateTokenPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceCreateTokenReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -130,7 +132,7 @@ func (a *Client) ProjectServiceCreateToken(params *ProjectServiceCreateTokenPara
 /*
   ProjectServiceDelete deletes deletes a project
 */
-func (a *Client) ProjectServiceDelete(params *ProjectServiceDeleteParams, opts ...ClientOption) (*ProjectServiceDeleteOK, error) {
+func (a *Client) ProjectServiceDelete(params *ProjectServiceDeleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceDeleteParams()
@@ -144,6 +146,7 @@ func (a *Client) ProjectServiceDelete(params *ProjectServiceDeleteParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -167,7 +170,7 @@ func (a *Client) ProjectServiceDelete(params *ProjectServiceDeleteParams, opts .
 /*
   ProjectServiceDeleteToken deletes a new project token
 */
-func (a *Client) ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenParams, opts ...ClientOption) (*ProjectServiceDeleteTokenOK, error) {
+func (a *Client) ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceDeleteTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceDeleteTokenParams()
@@ -181,6 +184,7 @@ func (a *Client) ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenPara
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceDeleteTokenReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -204,7 +208,7 @@ func (a *Client) ProjectServiceDeleteToken(params *ProjectServiceDeleteTokenPara
 /*
   ProjectServiceGet gets returns a project by name
 */
-func (a *Client) ProjectServiceGet(params *ProjectServiceGetParams, opts ...ClientOption) (*ProjectServiceGetOK, error) {
+func (a *Client) ProjectServiceGet(params *ProjectServiceGetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceGetParams()
@@ -218,6 +222,7 @@ func (a *Client) ProjectServiceGet(params *ProjectServiceGetParams, opts ...Clie
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -241,7 +246,7 @@ func (a *Client) ProjectServiceGet(params *ProjectServiceGetParams, opts ...Clie
 /*
   ProjectServiceGetDetailedProject gets detailed project returns a project that include project global project and scoped resources by name
 */
-func (a *Client) ProjectServiceGetDetailedProject(params *ProjectServiceGetDetailedProjectParams, opts ...ClientOption) (*ProjectServiceGetDetailedProjectOK, error) {
+func (a *Client) ProjectServiceGetDetailedProject(params *ProjectServiceGetDetailedProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetDetailedProjectOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceGetDetailedProjectParams()
@@ -255,6 +260,7 @@ func (a *Client) ProjectServiceGetDetailedProject(params *ProjectServiceGetDetai
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceGetDetailedProjectReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -278,7 +284,7 @@ func (a *Client) ProjectServiceGetDetailedProject(params *ProjectServiceGetDetai
 /*
   ProjectServiceGetGlobalProjects gets returns a virtual project by name
 */
-func (a *Client) ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobalProjectsParams, opts ...ClientOption) (*ProjectServiceGetGlobalProjectsOK, error) {
+func (a *Client) ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobalProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetGlobalProjectsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceGetGlobalProjectsParams()
@@ -292,6 +298,7 @@ func (a *Client) ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobal
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceGetGlobalProjectsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -315,7 +322,7 @@ func (a *Client) ProjectServiceGetGlobalProjects(params *ProjectServiceGetGlobal
 /*
   ProjectServiceGetSyncWindowsState gets schedules state returns true if there are any active sync sync windows
 */
-func (a *Client) ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSyncWindowsStateParams, opts ...ClientOption) (*ProjectServiceGetSyncWindowsStateOK, error) {
+func (a *Client) ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSyncWindowsStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceGetSyncWindowsStateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceGetSyncWindowsStateParams()
@@ -329,6 +336,7 @@ func (a *Client) ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSync
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceGetSyncWindowsStateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -352,7 +360,7 @@ func (a *Client) ProjectServiceGetSyncWindowsState(params *ProjectServiceGetSync
 /*
   ProjectServiceList lists returns list of projects
 */
-func (a *Client) ProjectServiceList(params *ProjectServiceListParams, opts ...ClientOption) (*ProjectServiceListOK, error) {
+func (a *Client) ProjectServiceList(params *ProjectServiceListParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceListParams()
@@ -366,6 +374,7 @@ func (a *Client) ProjectServiceList(params *ProjectServiceListParams, opts ...Cl
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceListReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -389,7 +398,7 @@ func (a *Client) ProjectServiceList(params *ProjectServiceListParams, opts ...Cl
 /*
   ProjectServiceListEvents lists events returns a list of project events
 */
-func (a *Client) ProjectServiceListEvents(params *ProjectServiceListEventsParams, opts ...ClientOption) (*ProjectServiceListEventsOK, error) {
+func (a *Client) ProjectServiceListEvents(params *ProjectServiceListEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceListEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceListEventsParams()
@@ -403,6 +412,7 @@ func (a *Client) ProjectServiceListEvents(params *ProjectServiceListEventsParams
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceListEventsReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -426,7 +436,7 @@ func (a *Client) ProjectServiceListEvents(params *ProjectServiceListEventsParams
 /*
   ProjectServiceUpdate updates updates a project
 */
-func (a *Client) ProjectServiceUpdate(params *ProjectServiceUpdateParams, opts ...ClientOption) (*ProjectServiceUpdateOK, error) {
+func (a *Client) ProjectServiceUpdate(params *ProjectServiceUpdateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ProjectServiceUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProjectServiceUpdateParams()
@@ -440,6 +450,7 @@ func (a *Client) ProjectServiceUpdate(params *ProjectServiceUpdateParams, opts .
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &ProjectServiceUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
